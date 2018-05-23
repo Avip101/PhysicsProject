@@ -14,7 +14,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
     {
         //make a panel with dimensions width by height with a black background
         this.setLayout( null );//Don't change
-        this.setBackground( Color.BLACK );
+        this.setBackground( Color.WHITE );
         this.setPreferredSize( new Dimension( width, height ) );//Don't change
 
         //initialize the instance variables
@@ -32,10 +32,10 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         boolean over = false;
         while( !over )
         {            
-            square.move(500,500, mouse.getX(), mouse.getY());
+            //square.move(500,500, mouse.getX(), mouse.getY());
             if(block.touchesSpring(square))
             {
-                System.out.println("YEEEEEET!!!!!");
+               
 
             }
             
@@ -86,7 +86,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         int mouseY = event.getY();
         mouse.setX(mouseX);
         mouse.setY(mouseY);
-        square.setLoc(mouseX, mouseY);
+        //square.setLoc(mouseX, mouseY);
         block.setLoc(mouseX, mouseY);
         //square.move(500,500, mouse.getX(), mouse.getY());
     }
