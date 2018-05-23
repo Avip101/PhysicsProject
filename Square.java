@@ -56,6 +56,14 @@ public class Square
         this.x = x;
         this.y = y;
     }
+    
+    public void setK(int k) {
+        this.k = k;
+    }
+    
+    public void setMass(int m) {
+        this.mass = m;
+    }
 
     public int getX()
     {

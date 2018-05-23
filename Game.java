@@ -66,8 +66,20 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
 
     //tells the program what to do when keys are pressed
     public void keyPressed( KeyEvent event )
-    {
-
+    {   
+        if (event.getKeyChar() == '1') { //m=50
+            square.setMass(50);
+        } else if (event.getKeyChar() == '2') { // m=100
+            square.setMass(100);
+        } else if (event.getKeyChar() == '3') { // k=10
+            square.setK(10);
+        } else if (event.getKeyChar() == '4') { // k=20
+            square.setK(20);
+        } else if (event.getKeyChar() == '5') { // reset
+            square.setLoc(500, 500);
+            square.setMass(50);
+            square.setK(10);
+        }
     }
 
     //not used but must be present
