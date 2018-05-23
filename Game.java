@@ -35,10 +35,8 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         while( !over )
         {            
             //square.move(500,500, mouse.getX(), mouse.getY());
-            if(block.touchesSpring(square))
-            {
-               
-
+            if(!block.touchesSpring(square, mouse))
+            {   
             }
             
             try
