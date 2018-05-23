@@ -8,6 +8,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
     private Square square;
     private Mouse mouse;
     private Block block;
+    private Menu menu;
 
     //constructor - sets the initial conditions for this Game object
     public Game(int width, int height)
@@ -21,6 +22,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         square = new Square( 500, 500, 50, 50 ); //change these numbers and see what happens
         mouse = new Mouse(0,0);
         block = new Block(250,250,50);
+        menu = new Menu(15,15);
         this.addKeyListener(this);//allows the program to respond to key presses - Don't change
         this.addMouseMotionListener(this);
         this.setFocusable(true);//I'll tell you later - Don't change
@@ -54,6 +56,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         super.paintComponent( page );//I'll tell you later.
         square.draw( page );//calls the draw method in the Square class
         block.draw(page);
+        menu.draw(page);
     }
 
     //not used but must be present
