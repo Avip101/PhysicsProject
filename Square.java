@@ -7,22 +7,27 @@ public class Square
 {
     private int x;                  // x position
     private int y;                  // y position
+    private int size;
     private int vx;                 // x velocity
     private int vy;                 // y velocity
     private int accel;              // for F = -kx
     private int k;
     private int force; 
     private int mass;
+    private int length;
+    private int[] coordArr;
+    private final int width = 50; 
+
     private BufferedImage img;
 
-    public Square( int xLoc, int yLoc, int k, int mass)
+    public Square( int xLoc, int yLoc, int k, int size)
     {
         try {
             img = ImageIO.read(new File("spring.png"));
         } catch (IOException e) {
             System.out.println(e);
         }
-        
+        this.length = 100;
         this.x = xLoc;
         this.y = yLoc;
         this.vx = 0;
@@ -30,6 +35,7 @@ public class Square
         this.accel = 10;
         this.k = k;
         this.mass = mass;
+        this.coordArr = new int[] {x, x + 50,y, y + 100};
     }
 
     public void move(int xInit, int yInit, int x, int y)
@@ -41,31 +47,35 @@ public class Square
         accel = force / mass;
 
         vx = vx + accel;    
-  
+
         vy = vy + accel;  
 
     }
 
     public void draw( Graphics page )
     {
-        page.drawImage(img, x, y, 50, 100, null);
+        page.drawImage(img, x, y, width, length, null);
     }
 
     public void setLoc(int x, int y)
     {
         this.x = x;
         this.y = y;
+        this.coordArr = new int[]{x, x + 50,y, y + 100};
     }
 
     public int getX()
     {
         return this.x;
     }
-    
+
     public int getY()
     {
         return this.y;
     }
-    
-    
+
+    public int[] getArr()
+    {
+        return coordArr;
+    }    
 }

@@ -7,6 +7,7 @@ public class Block
     private int mass;
     private int x; 
     private int y;
+    private int[] arr;
 
     public Block(int x, int y, int mass)
     {
@@ -27,15 +28,19 @@ public class Block
         this.y = y;
     }
 
-    public boolean touchesSpring(Square other)
+    public boolean touchesSpring(Square other, Mouse mouse)
     {
-        if(x == other.getX() && y == other.getY())
+        arr = other.getArr();
+        int x = mouse.getX();
+        int y = mouse.getY();
+        if( arr[0] < x  && arr[1] > x && arr[2] < y && arr[3] > y)
         {
-            
+            this.x = arr[0];
+            this.y = arr[3];
             return true;
         }
+        
         return false;      
     }
 
-    
 }
