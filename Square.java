@@ -39,7 +39,7 @@ public class Square
     public void draw( Graphics page )
     {
         page.setColor( new Color( 150, 100, 50 ) );//color defined using rgb values (0-255 each)
-        page.fillRect( x, y, 75, 75 );//change the last two numbers and see what happens
+        page.fillRect( x, y, 10, 75 );//change the last two numbers and see what happens
     }
 
     public void setLoc(int x, int y)
@@ -48,4 +48,15 @@ public class Square
         this.y = y;
     }
 
+    public int getX()
+    {
+        return this.x;
+    }
+    
+    public int getY()
+    {
+        return this.y;
+    }
+    
+    
 }

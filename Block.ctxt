@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=x\ y\ mass
+comment0.target=Block(int,\ int,\ int)
+comment1.params=page
+comment1.target=void\ draw(java.awt.Graphics)
+comment2.params=x\ y
+comment2.target=void\ setLoc(int,\ int)
+comment3.params=other
+comment3.target=boolean\ touchesSpring(Square)
+numComments=4
