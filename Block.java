@@ -33,14 +33,13 @@ public class Block
         arr = other.getArr();
         int x = mouse.getX();
         int y = mouse.getY();
-        if( arr[0] < x  && arr[1] > x && arr[2] < y && arr[3] > y)
+        if(arr[0] < x  && arr[1] > x && arr[2] < y && arr[3] > y)
         {
             this.x = arr[0];
             this.y = arr[3];
             return true;
         }
-        
-        return false;      
+        return false; 
     }
 
 }
