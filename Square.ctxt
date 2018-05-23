@@ -1,10 +1,11 @@
 #BlueJ class context
-comment0.params=xLoc\ yLoc\ k\ mass
-comment0.target=Square(int,\ int,\ int,\ int)
-comment1.params=xInit\ yInit\ x\ y
-comment1.target=void\ move(int,\ int,\ int,\ int)
-comment2.params=page
-comment2.target=void\ draw(java.awt.Graphics)
-comment3.params=x\ y
-comment3.target=void\ setLoc(int,\ int)
-numComments=4
+comment0.target=Square
+comment1.params=xLoc\ yLoc\ k\ mass
+comment1.target=Square(int,\ int,\ int,\ int)
+comment2.params=xInit\ yInit\ x\ y
+comment2.target=void\ move(int,\ int,\ int,\ int)
+comment3.params=page
+comment3.target=void\ draw(java.awt.Graphics)
+comment4.params=x\ y
+comment4.target=void\ setLoc(int,\ int)
+numComments=5

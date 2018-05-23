@@ -12,7 +12,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
     {
         //make a panel with dimensions width by height with a black background
         this.setLayout( null );//Don't change
-        this.setBackground( Color.BLACK );
+        this.setBackground( Color.WHITE );
         this.setPreferredSize( new Dimension( width, height ) );//Don't change
         
         //initialize the instance variables

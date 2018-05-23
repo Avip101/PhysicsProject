@@ -1,4 +1,7 @@
-import java.awt.*;//must be imported to use Graphics and Color
+import java.awt.*;
+import java.io.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
 
 public class Square
 {
@@ -6,13 +9,20 @@ public class Square
     private int y;                  // y position
     private int vx;                 // x velocity
     private int vy;                 // y velocity
-    private int accel;           // for F = -kx
+    private int accel;              // for F = -kx
     private int k;
     private int force; 
     private int mass;
+    private BufferedImage img;
 
     public Square( int xLoc, int yLoc, int k, int mass)
     {
+        try {
+            img = ImageIO.read(new File("spring.png"));
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+        
         this.x = xLoc;
         this.y = yLoc;
         this.vx = 0;
@@ -38,8 +48,7 @@ public class Square
 
     public void draw( Graphics page )
     {
-        page.setColor( new Color( 150, 100, 50 ) );//color defined using rgb values (0-255 each)
-        page.fillRect( x, y, 75, 75 );//change the last two numbers and see what happens
+        page.drawImage(img, x, y, 50, 100, null);
     }
 
     public void setLoc(int x, int y)
