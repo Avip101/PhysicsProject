@@ -19,7 +19,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         this.setPreferredSize( new Dimension( width, height ) );//Don't change
 
         //initialize the instance variables
-        square = new Square( 500, 500, 50, 50 ); //change these numbers and see what happens
+        square = new Square( 50, 50, 50, 50 ); //change these numbers and see what happens
         mouse = new Mouse(0,0);
         block = new Block(250,250,50);
         menu = new Menu(15,15);
@@ -62,8 +62,21 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
 
     //tells the program what to do when keys are pressed
     public void keyPressed( KeyEvent event )
-    {
-
+    {   
+        if (event.getKeyChar() == '1') { //m=50
+            block.setMass(50);
+        } else if (event.getKeyChar() == '2') { // m=100
+            block.setMass(100);
+        } else if (event.getKeyChar() == '3') { // k=10
+            square.setK(10);
+        } else if (event.getKeyChar() == '4') { // k=20
+            square.setK(20);
+        } else if (event.getKeyChar() == '5') { // reset
+            square.setLoc(500, 500);
+            square.setK(10);
+            block.setLoc(250,250);
+            block.setMass(50);
+        }
     }
 
     //not used but must be present
@@ -78,7 +91,12 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
     public void mouseMoved(MouseEvent event)
     {
     }
-
+    
+    public void mouseReleased()
+    {
+        
+    }
+    
     public void mouseDragged(MouseEvent event)
     {
         int mouseX = event.getX();
@@ -93,8 +111,11 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         }
         else
         {
-            square.setLoc(mouseX, mouseY);
+            //square.setLoc(mouseX, mouseY);
+
+            
         }
+        square.adjustLength(mouseX, mouseY);
         //square.move(500,500, mouse.getX(), mouse.getY());
     }
 }

@@ -27,13 +27,18 @@ public class Block
         this.x = x;
         this.y = y;
     }
+    public void setMass(int m)
+    {
+        this.mass = m;
+    }
+    
 
     public boolean touchesSpring(Square other, Mouse mouse)
     {
         arr = other.getArr();
         int x = mouse.getX();
         int y = mouse.getY();
-        if(arr[0] < x  && arr[1] > x && arr[2] < y && arr[3] > y)
+        if(arr[0]-5 < x  && arr[1]+5 > x && arr[2]-5 < y && arr[3]+5 > y)
         {
             this.x = arr[0];
             this.y = arr[3];
