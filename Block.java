@@ -5,46 +5,65 @@ import java.awt.*;
 public class Block
 {
     private int mass;
-    private int x; 
-    private int y;
+    private double x; 
+    private double y;
     private int[] arr;
 
-    public Block(int x, int y, int mass)
+    private double position = 200;
+
+
+    public Block(double x, double y, int mass)
     {
         this.x = x;
         this.y = y; 
         this.mass = mass;
     }
 
+    public double getX()
+    {
+        return this.x;
+    }
+
+    public double getY()
+    {
+        return this.y;
+    }
+    public double getMass()
+    {
+        return this.mass;
+    }
+    
     public void draw(Graphics page)
     {
         page.setColor( new Color( 150, 100, 50 ) );//color defined using rgb values (0-255 each)
-        page.fillRect( x, y, 75, 75 );//change the last two numbers and see what happens
+        page.fillRect((int)x, (int)y, 75, 75 );//change the last two numbers and see what happens
+
     }
 
-    public void setLoc(int x, int y)
+
+
+    public void setLoc(double x, double y)
     {
         this.x = x;
         this.y = y;
     }
+
     public void setMass(int m)
     {
         this.mass = m;
     }
-    
+
+    public void setPosition(double pos) {
+        this.position = pos;
+    }
+   
+    public double getPosition() {
+        return this.position;
+    }
 
     public boolean touchesSpring(Square other, Mouse mouse)
     {
-        arr = other.getArr();
-        int x = mouse.getX();
-        int y = mouse.getY();
-        if(arr[0]-5 < x  && arr[1]+5 > x && arr[2]-5 < y && arr[3]+5 > y)
-        {
-            this.x = arr[0];
-            this.y = arr[3];
-            return true;
-        }
-        return false; 
+        return false;
     }
 
 }

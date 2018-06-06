@@ -11,23 +11,23 @@ public class Square
     private int vx;                 // x velocity
     private int vy;                 // y velocity
     private int accel;              // for F = -kx
-    private int k;
+    private double k = 1;
     private int force; 
     private int mass;
-    private int length;
+    private double length;
     private int[] coordArr;
     private final int width = 50; 
 
     private BufferedImage img;
 
-    public Square( int xLoc, int yLoc, int k, int size)
+    public Square( int xLoc, int yLoc, double k, int size)
     {
         try {
             img = ImageIO.read(new File("spring.png"));
         } catch (IOException e) {
             System.out.println(e);
         }
-        this.length = 100;
+        this.length = 300;
         this.x = xLoc;
         this.y = yLoc;
         this.vx = 0;
@@ -35,37 +35,31 @@ public class Square
         this.accel = 10;
         this.k = k;
         this.mass = 100;
-        this.coordArr = new int[] {x, x + 50,y, y + length};
     }
 
     public void move()
     {
-        force = -k * (this.length); // for y direction
-        accel = force / mass;
-
-        vy = vy + accel; 
-        this.length -= 50;
-        
     }
 
     public void draw( Graphics page )
     {
-        page.drawImage(img, x, y, width, length, null);
+        page.drawImage(img, x, y, width, (int)length, null);
     }
 
-    public void adjustLength(int mouseX, int mouseY)
+    public void adjustLength(double yCoord)
     {
-        if (50 < mouseX && mouseX < 100) {
-            int length = mouseY-y;
-            this.length = length;
-        }
+        this.length = yCoord - 50;
+    }
+    
+    public void setLength(double length) {
+        this.length = length;
     }
     
     public void setLoc(int x, int y)
     {
         this.x = x;
         this.y = y;
-        this.coordArr = new int[]{x, x + 50,y, y + length};
+        
     }
 
     public void setK(int k) {
@@ -76,6 +70,10 @@ public class Square
         this.mass = m;
     }
 
+    public double getK() {
+        return this.k;
+    }
+    
     public int getX()
     {
         return this.x;
@@ -85,9 +83,4 @@ public class Square
     {
         return this.y;
     }
-
-    public int[] getArr()
-    {
-        return coordArr;
-    }    
 }
