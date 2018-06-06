@@ -35,8 +35,11 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         while( !over )
         {            
             //square.move(500,500, mouse.getX(), mouse.getY());
-            
-
+            if(block.touchesSpring(square, mouse))
+            {
+                square.move();
+                square.reDraw
+            }
             try
             {
                 Thread.sleep( 1 );//pause for 200 milliseconds
@@ -90,13 +93,16 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
 
     public void mouseMoved(MouseEvent event)
     {
+
     }
-    
-    public void mouseReleased()
+
+    public void mouseReleased(MouseEvent event, Graphics page)
     {
-        
+        int mouseX = event.getX();
+        int mouseY = event.getY();        
+        System.out.println("HELLO!!!!!!!!");
+
     }
-    
     public void mouseDragged(MouseEvent event)
     {
         int mouseX = event.getX();
@@ -107,15 +113,7 @@ public class Game extends JPanel implements KeyListener, ActionListener, MouseMo
         if(!block.touchesSpring(square, mouse))
         {
             block.setLoc(mouseX, mouseY);
-            
-        }
-        else
-        {
-            //square.setLoc(mouseX, mouseY);
-
-            
         }
         square.adjustLength(mouseX, mouseY);
-        //square.move(500,500, mouse.getX(), mouse.getY());
     }
 }

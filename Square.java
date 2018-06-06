@@ -34,22 +34,18 @@ public class Square
         this.vy = 0;
         this.accel = 10;
         this.k = k;
-        this.mass = mass;
+        this.mass = 100;
         this.coordArr = new int[] {x, x + 50,y, y + length};
     }
 
-    public void move(int xInit, int yInit, int x, int y)
+    public void move()
     {
-        force = -k * (x - xInit); // for x direction
-        accel = force / mass; 
-
-        force = -k * (y - yInit); // for y direction
+        force = -k * (this.length); // for y direction
         accel = force / mass;
 
-        vx = vx + accel;    
-
-        vy = vy + accel;  
-
+        vy = vy + accel; 
+        this.length -= 50;
+        
     }
 
     public void draw( Graphics page )
@@ -57,7 +53,6 @@ public class Square
         page.drawImage(img, x, y, width, length, null);
     }
 
-    
     public void adjustLength(int mouseX, int mouseY)
     {
         if (50 < mouseX && mouseX < 100) {
@@ -66,18 +61,17 @@ public class Square
         }
     }
     
-    
     public void setLoc(int x, int y)
     {
         this.x = x;
         this.y = y;
         this.coordArr = new int[]{x, x + 50,y, y + length};
     }
-    
+
     public void setK(int k) {
         this.k = k;
     }
-    
+
     public void setMass(int m) {
         this.mass = m;
     }
@@ -91,8 +85,6 @@ public class Square
     {
         return this.y;
     }
-   
-    
 
     public int[] getArr()
     {
